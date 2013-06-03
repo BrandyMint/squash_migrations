@@ -8,8 +8,22 @@ namespace :db do
       remove_migration_file(migration_proxy.filename)
     end
 
-    FileUtils.copy('db/schema.rb', last_migration_proxy.filename)
+    FileUtils.cp('db/schema.rb', last_migration_proxy.filename)
+
+    file_array = File.readlines(last_migration_proxy.filename)
+    index = file_array.find_index { |item| item.match('ActiveRecord::Schema.define') }
+    file_array.shift(index + 1)
+
+    file_array.insert(0, "class #{last_migration_proxy.name} < ActiveRecord::Migration", '  def up')
+
+    file_array << '' << '  def down' << "    puts '>>> Do not rollback first migration!'" << '    raise' << '  end' << 'end'
+
+    File.open(last_migration_proxy.filename, "w") do |f|
+      file_array.each { |line| f.puts(line) }
+    end
+
     if git_repo?
+      `git add db/schema.rb`
       `git add #{last_migration_proxy.filename}`
     end
   end

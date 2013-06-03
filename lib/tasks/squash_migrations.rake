@@ -18,7 +18,7 @@ namespace :db do
 
     file_array << '' << '  def down' << "    puts '>>> Do not rollback first migration!'" << '    raise' << '  end' << 'end'
 
-    File.open(last_migration_proxy.filename, "w") do |f|
+    File.open(last_migration_proxy.filename, 'w') do |f|
       file_array.each { |line| f.puts(line) }
     end
 

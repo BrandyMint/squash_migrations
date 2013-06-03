@@ -1,5 +1,5 @@
-require "squash_migrations/version"
+require 'squash_migrations/version'
 
 module SquashMigrations
-  # Your code goes here...
+  require 'squash_migrations/railtie' if defined?(Rails)
 end

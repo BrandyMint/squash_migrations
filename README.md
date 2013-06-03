@@ -20,6 +20,6 @@ Or install it yourself as:
 
     rake db:squash_migrations
 
-## Authors
+## Contributors
 
 * [Aleksandr B. Ivanov](http://github.com/Radanisk)

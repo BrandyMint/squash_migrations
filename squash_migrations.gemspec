@@ -6,10 +6,10 @@ require 'squash_migrations/version'
 Gem::Specification.new do |spec|
   spec.name          = "squash_migrations"
   spec.version       = SquashMigrations::VERSION
-  spec.authors       = ["Aleksandr Ivanov"]
+  spec.authors       = ["Aleksandr B. Ivanov"]
   spec.email         = ["radanisk@ya.ru"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Squash migrations}
+  spec.summary       = %q{Squash migrations}
   spec.homepage      = ""
   spec.license       = "MIT"
 

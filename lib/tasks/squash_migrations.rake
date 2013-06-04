@@ -16,7 +16,7 @@ namespace :db do
 
     file_array.insert(0, "class #{last_migration_proxy.name} < ActiveRecord::Migration", '  def up')
 
-    file_array << '' << '  def down' << "    puts '>>> Do not rollback first migration!'" << '    raise' << '  end' << 'end'
+    file_array << '' << '  def down' << "    say '>>> Do not rollback first migration!'" << '    raise' << '  end' << 'end'
 
     File.open(last_migration_proxy.filename, 'w') do |f|
       file_array.each { |line| f.puts(line) }

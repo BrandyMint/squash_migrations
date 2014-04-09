@@ -19,6 +19,11 @@ Or install it yourself as:
 ## Usage
 
     rake db:squash_migrations
+    
+    
+## Same gems:
+
+* https://github.com/jalkoby/squasher
 
 ## Contributors
 
